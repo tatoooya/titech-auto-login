@@ -1,69 +1,96 @@
-<!-- バッジ例: GitHub Release ダウンロード数。まだリリースを作っていない場合は後で挿入 -->
-<!-- ![Downloads](https://img.shields.io/github/downloads/YOUR_GITHUB_USERNAME/titech-auto-login/total) -->
+![Downloads](https://img.shields.io/github/downloads/tatoooya/titech-auto-login/total)
 
 # Titech Auto-Login Extension
 
-東京工業大学（現・東京科学大学）ポータルサイトのログインを自動化する Chrome 拡張機能です。  
-**大学非公式・自己責任** でご利用ください。
+東京工業大学（現・東京科学大学）ポータルのログイン操作を自動化する Chrome 拡張機能です。  
+**大学非公式・自己責任** で利用してください。  
+<br>
 
-## Features / 主な機能
-- 学籍番号 & パスワード自動入力  
-- マトリクス表を登録して自動入力  
-- 資格情報は **`chrome.storage.local`** にのみ保存（外部送信なし）  
-- ワンクリックでオフにできるアドオンアイコン
-
-## Installation (Developer Mode)
-
-1. Clone or download this repository.  
-2. Open **`chrome://extensions/`** in Chrome.  
-3. Enable **Developer mode**.  
-4. Click **Load unpacked** and select the project folder.  
-5. Click the extension icon 🧩 → **Options** to register your account info.
-
-日本語手順を展開する ▼
-<details>
-<summary>開く / Close</summary>
-
-1. このリポジトリをダウンロード（ZIP解凍）または `git clone`  
-2. Chrome を開きアドレスバーへ `chrome://extensions/`  
-3. 右上で **デベロッパーモード** をオン  
-4. **パッケージ化されていない拡張機能を読み込む** → フォルダを選択  
-5. 拡張オプションから ID / パスワード / マトリクス を登録
-</details>
-
-## Security Notes
-
-- 学内規約に反しない範囲で使用してください  
-- 共有 PC では使用しないでください  
-- ソースコードのセキュリティレビューは歓迎です（Pull Request / Issue）
-
-## Screenshots
-
-| Login page | Options page |
-|------------|--------------|
-| ![login](docs/screenshot-login.png) | ![options](docs/screenshot-options.png) |
-
-> スクリーンショットをまだ用意していなければ、このブロックごと削除してOK。
-
-## Roadmap
-
-- Edge / Chromium ベースブラウザでの動作保証  
-- 暗号化ストレージ対応（マスターキー方式）  
-- GitHub Actions で自動ビルド & リリース ZIP 生成  
-- ダウンロード数バッジの公式サイト連携
-
-## License
-
-MIT — see [LICENSE](./LICENSE) for details.
+| 対応ブラウザ | 推奨バージョン | 対応 OS |
+|--------------|----------------|---------|
+| Google Chrome | 88 以降 (Chromium 系含む) | Windows / macOS |
 
 ---
 
-### English Summary
+## 🏗 機能 / Features
+- 学籍番号・パスワード自動入力  
+- マトリクス表（7 × 10）登録 → 自動入力  
+- 資格情報は **`chrome.storage.local`** のみに保存（外部送信なし）  
+- 拡張アイコンからワンクリックで有効/無効を切替
 
-Titech Auto-Login automates logging in to Tokyo Tech / Tokyo Science University portal.  
-**Unofficial. Use at your own risk.**
+---
 
-- Auto-fills ID/password and matrix table  
-- No credentials leave your PC (`chrome.storage.local`)  
-- Install via Chrome’s “Load unpacked” in Developer mode  
-- Licensed under MIT
+## 🚀 インストール (Developer Mode)
+
+1. [Releases](../../releases) から ZIP をダウンロード & 解凍  
+2. **Chrome** アドレスバーに `chrome://extensions/`  
+3. 右上 **Developer mode** を ON  
+4. **Load unpacked** → 解凍フォルダ (`titech-auto-login/`) を選択  
+5. 一覧に **Titech Auto-Login** が表示されれば成功
+
+> **フォルダの推奨保存先**  
+> - Windows : `C:\Users\<ユーザー名>\Documents\ChromeExtensions\`  
+> - macOS : `~/Documents/ChromeExtensions/`  
+> フォルダを移動・削除すると拡張が無効化されるので注意。
+
+---
+
+## ⚙️ 初期設定
+
+1. 拡張アイコン 🧩 → **Titech Auto-Login** →︙→ **Options**  
+2. 入力欄に次を設定  
+   - **Account** : 学籍番号 (例 `s1234567`)  
+   - **Password** : ログインパスワード  
+   - **Matrix** : 7 × 10 の英数字（マトリクス表）  
+3. **保存** をクリック → 次回から https://portal.nap.gsic.titech.ac.jp/ にアクセスすれば自動ログインされます！
+
+---
+
+## 🔒 セキュリティ注意
+
+- 資格情報は PC ローカルのみ保存。外部送信はありません  
+- 共有 PC・公共端末では使用しないでください  
+- 大学の利用規約を遵守してください
+
+---
+
+## 🛠 トラブルシューティング
+| 症状 | 対処 |
+|------|------|
+| 自動入力されない | `chrome://extensions/` で拡張を **Reload** |
+| 設定を変更したい | 拡張アイコン → **Options** で再登録 |
+| 別 PC で使う | ZIP を再インストール → 初期設定を再入力 |
+
+---
+
+## 📜 ライセンス
+MIT — see [LICENSE](./LICENSE).
+
+---
+
+<details>
+<summary>🌐 English Instructions (Click to expand)</summary>
+
+### How to Install
+
+1. Download the ZIP from [Releases](../../releases) and unzip it.  
+2. Open `chrome://extensions/` in Chrome.  
+3. Toggle **Developer mode** on (top-right).  
+4. Click **Load unpacked** and select the unzipped folder (`titech-auto-login/`).  
+5. “Titech Auto-Login” should appear in the list.
+
+### How to Set Up
+
+1. Click the extension icon (🧩) → “Titech Auto-Login” → **Options**.  
+2. Fill in:  
+   - **Account** (login ID)  
+   - **Password**  
+   - **Matrix** (7 × 10 characters)  
+3. Click **Save**. From now on, visiting the portal auto-logs you in!
+
+### Security Notes
+- All data stays **only on your local PC**.  
+- Nothing is sent outside.  
+- **Do not use on shared / public computers.**
+
+</details>
